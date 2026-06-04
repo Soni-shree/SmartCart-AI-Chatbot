@@ -1,0 +1,425 @@
+overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(12,26,46,0.6);
+  backdrop-filter: blur(4px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.modal {
+  background: #fff;
+  border-radius: 24px;
+  width: 100%;
+  max-width: 520px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 24px 80px rgba(14,165,233,0.25);
+  border: 1.5px solid #bae6fd;
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 22px;
+  border-bottom: 1.5px solid #e0f2fe;
+}
+
+.modalTitle { font-size: 17px; font-weight: 900; color: #0c1a2e; }
+
+.closeBtn {
+  background: #f0f9ff;
+  border: 1px solid #bae6fd;
+  border-radius: 8px;
+  width: 32px; height: 32px;
+  font-size: 14px;
+  cursor: pointer;
+  color: #64748b;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.closeBtn:hover { background: #e0f2fe; }
+
+/* STEPS */
+.steps {
+  display: flex;
+  padding: 14px 22px;
+  gap: 0;
+  border-bottom: 1px solid #f0f9ff;
+  background: #f0f9ff;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  position: relative;
+}
+
+.step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 60%;
+  height: 2px;
+  background: #bae6fd;
+  transform: translateY(-50%);
+}
+
+.stepDot {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: #e0f2fe;
+  color: #94a3b8;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px;
+  font-weight: 900;
+  flex-shrink: 0;
+  border: 2px solid #bae6fd;
+}
+
+.activeStep .stepDot { background: #0ea5e9; color: #fff; border-color: #0ea5e9; }
+.doneStep .stepDot   { background: #10b981; color: #fff; border-color: #10b981; }
+
+.stepLabel { font-size: 12px; font-weight: 700; color: #94a3b8; }
+.activeStep .stepLabel { color: #0284c7; }
+.doneStep .stepLabel   { color: #10b981; }
+
+.modalBody {
+  flex: 1;
+  overflow-y: auto;
+  padding: 18px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ADDRESS */
+.addrCard {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px;
+  border: 1.5px solid #e0f2fe;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.15s;
+  margin-bottom: 10px;
+}
+
+.addrCard:hover { border-color: #7dd3fc; background: #f0f9ff; }
+.selectedCard   { border-color: #0ea5e9; background: #f0f9ff; }
+
+.addrRadio { font-size: 18px; margin-top: 2px; flex-shrink: 0; }
+.addrTag   { font-size: 13px; font-weight: 800; color: #0284c7; margin-bottom: 4px; }
+.addrText  { font-size: 13px; color: #475569; line-height: 1.4; }
+
+.addAddrBtn {
+  width: 100%;
+  background: #f0f9ff;
+  border: 1.5px dashed #7dd3fc;
+  border-radius: 12px;
+  padding: 12px;
+  font-size: 14px;
+  font-weight: 800;
+  color: #0284c7;
+  cursor: pointer;
+  transition: background 0.15s;
+  margin-top: 4px;
+}
+
+.addAddrBtn:hover { background: #e0f2fe; }
+
+.addAddrForm {
+  background: #f0f9ff;
+  border-radius: 14px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 1.5px solid #bae6fd;
+  margin-top: 4px;
+}
+
+.addrInput, .addrTextarea {
+  border: 1.5px solid #bae6fd;
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 13px;
+  outline: none;
+  background: #fff;
+  font-family: 'Nunito', sans-serif;
+  resize: none;
+}
+
+.addrInput:focus, .addrTextarea:focus { border-color: #0ea5e9; }
+
+.saveAddrBtn {
+  flex: 1;
+  background: #0ea5e9;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.cancelBtn {
+  flex: 1;
+  background: #f0f9ff;
+  border: 1.5px solid #bae6fd;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #64748b;
+  cursor: pointer;
+}
+
+/* PAYMENT */
+.payCard {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px;
+  border: 1.5px solid #e0f2fe;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.15s;
+  margin-bottom: 10px;
+}
+
+.payCard:hover { border-color: #7dd3fc; background: #f0f9ff; }
+
+.payIcon  { font-size: 24px; }
+.payInfo  { flex: 1; }
+.payLabel { font-size: 14px; font-weight: 800; color: #0c1a2e; }
+.payDesc  { font-size: 12px; color: #94a3b8; margin-top: 2px; }
+
+.payDetail {
+  background: #f0f9ff;
+  border-radius: 14px;
+  padding: 16px;
+  border: 1.5px solid #bae6fd;
+  margin-top: 4px;
+  display: flex;
+  flex-direction: column;
+}
+
+.fieldLabel {
+  font-size: 12px;
+  font-weight: 800;
+  color: #475569;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.payInput {
+  border: 1.5px solid #bae6fd;
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 14px;
+  outline: none;
+  background: #fff;
+  font-family: 'Nunito', sans-serif;
+  color: #0c1a2e;
+}
+
+.payInput:focus { border-color: #0ea5e9; }
+
+.codNote {
+  background: #f0fdf4;
+  border: 1.5px solid #bbf7d0;
+  color: #166534;
+  border-radius: 12px;
+  padding: 14px;
+  font-size: 14px;
+  font-weight: 700;
+  margin-top: 4px;
+}
+
+/* CONFIRM */
+.confirmSection {
+  background: #f0f9ff;
+  border-radius: 14px;
+  padding: 14px;
+  margin-bottom: 12px;
+  border: 1px solid #e0f2fe;
+}
+
+.confirmLabel { font-size: 13px; font-weight: 800; color: #0284c7; margin-bottom: 8px; }
+.confirmValue { font-size: 14px; color: #334155; }
+
+.orderItem {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #475569;
+  padding: 4px 0;
+  border-bottom: 1px solid #e0f2fe;
+}
+
+.orderTotal {
+  display: flex;
+  justify-content: space-between;
+  font-size: 15px;
+  font-weight: 900;
+  color: #0c1a2e;
+  padding-top: 10px;
+  margin-top: 4px;
+}
+
+/* FOOTER */
+.modalFooter {
+  padding: 16px 22px;
+  border-top: 1.5px solid #e0f2fe;
+  display: flex;
+  gap: 12px;
+  background: #f0f9ff;
+  border-radius: 0 0 24px 24px;
+}
+
+.backBtn {
+  background: #fff;
+  border: 1.5px solid #bae6fd;
+  color: #0284c7;
+  border-radius: 12px;
+  padding: 12px 20px;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.nextBtn {
+  flex: 1;
+  background: linear-gradient(90deg, #0284c7, #0ea5e9);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 14px;
+  font-size: 15px;
+  font-weight: 900;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.nextBtn:hover { opacity: 0.9; }
+
+.placeBtn {
+  flex: 1;
+  background: linear-gradient(90deg, #10b981, #059669);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 14px;
+  font-size: 15px;
+  font-weight: 900;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: opacity 0.2s;
+}
+
+.placeBtn:disabled { opacity: 0.8; cursor: not-allowed; }
+
+.spinner {
+  width: 18px; height: 18px;
+  border: 3px solid rgba(255,255,255,0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  display: inline-block;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* SUCCESS */
+.successBox {
+  background: #fff;
+  border-radius: 28px;
+  padding: 56px 48px;
+  text-align: center;
+  box-shadow: 0 24px 80px rgba(14,165,233,0.25);
+  border: 1.5px solid #bae6fd;
+  animation: popIn 0.4s ease;
+}
+
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.85); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.successAnim { font-size: 72px; margin-bottom: 16px; animation: bounce 0.6s ease; }
+
+@keyframes bounce {
+  0%   { transform: scale(0); }
+  60%  { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+.successTitle { font-size: 30px; font-weight: 900; color: #0c1a2e; margin-bottom: 8px; }
+.successSub   { font-size: 16px; color: #64748b; margin-bottom: 16px; }
+.successEta   { font-size: 15px; color: #0284c7; font-weight: 700; margin-bottom: 12px; }
+.successId    { font-size: 13px; color: #94a3b8; font-weight: 700; background: #f0f9ff; border-radius: 8px; padding: 8px 16px; display: inline-block; }
+
+/* EXTRA STYLES FOR NEW FEATURES */
+.addrList { display: flex; flex-direction: column; gap: 10px; margin-bottom: 12px; }
+
+.addrContent { flex: 1; min-width: 0; }
+
+.radioCircle {
+  width: 20px; height: 20px; border-radius: 50%;
+  border: 2px solid #bae6fd; display: flex; align-items: center;
+  justify-content: center; flex-shrink: 0; transition: border-color 0.2s;
+}
+.radioSelected { border-color: #0ea5e9; }
+.radioDot { width: 10px; height: 10px; border-radius: 50%; background: #0ea5e9; }
+
+.defaultBadge {
+  background: #e0f2fe; color: #0284c7; font-size: 10px; font-weight: 800;
+  border-radius: 6px; padding: 2px 8px; flex-shrink: 0;
+}
+
+.fieldRow { display: flex; flex-direction: column; gap: 5px; }
+
+.addrBtns { display: flex; gap: 10px; margin-top: 4px; }
+
+.upiLogos { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+.upiChip {
+  background: #e0f2fe; color: #0284c7; border-radius: 8px;
+  padding: 4px 12px; font-size: 12px; font-weight: 800;
+  border: 1px solid #bae6fd;
+}
+
+.confirmTag { font-size: 13px; font-weight: 800; color: #0ea5e9; margin-bottom: 4px; }
+.orderDivider { height: 1px; background: #e0f2fe; margin: 8px 0; }
+.deliveryNote { font-size: 12px; color: #64748b; margin-top: 8px; text-align: center; }
+
+.successAddr {
+  font-size: 13px; color: #64748b; margin: 8px 0 14px;
+  background: #f0f9ff; border-radius: 10px; padding: 8px 14px;
+  border: 1px solid #e0f2fe; max-width: 320px; margin: 10px auto 14px;
+}
+
+
+

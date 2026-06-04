@@ -1,0 +1,126 @@
+.card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 12px;
+  border: 1.5px solid #e0f2fe;
+  cursor: pointer;
+  transition: box-shadow 0.2s, transform 0.15s;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  box-shadow: 0 6px 24px rgba(14,165,233,0.15);
+  transform: translateY(-2px);
+  border-color: #7dd3fc;
+}
+
+.discountBadge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: #f43f5e;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 800;
+  border-radius: 6px;
+  padding: 2px 7px;
+}
+
+.imgBox {
+  font-size: 52px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+  user-select: none;
+}
+
+.name {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0c1a2e;
+  margin-bottom: 2px;
+  line-height: 1.3;
+  flex: 1;
+}
+
+.qty {
+  font-size: 11px;
+  color: #94a3b8;
+  margin-bottom: 8px;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+}
+
+.price {
+  font-size: 14px;
+  font-weight: 900;
+  color: #0284c7;
+}
+
+.mrp {
+  font-size: 11px;
+  color: #cbd5e1;
+  text-decoration: line-through;
+}
+
+.addBtn {
+  background: #0ea5e9;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+  white-space: nowrap;
+  font-family: 'Nunito', sans-serif;
+}
+
+.addBtn:hover { background: #0284c7; transform: scale(1.04); }
+
+.qtyControl {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: #e0f2fe;
+  border-radius: 8px;
+  padding: 3px 5px;
+}
+
+.qtyBtn {
+  background: #0ea5e9;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  width: 24px;
+  height: 24px;
+  font-size: 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  transition: background 0.15s;
+  font-family: 'Nunito', sans-serif;
+}
+
+.qtyBtn:hover { background: #0284c7; }
+
+.qtyNum {
+  font-size: 13px;
+  font-weight: 900;
+  min-width: 16px;
+  text-align: center;
+  color: #0284c7;
+}
+
